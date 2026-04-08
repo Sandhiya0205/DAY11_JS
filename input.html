@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Arrow Function Tasks</title>
+</head>
+<body>
+
+
+<h3>Task 1: Live Name Preview</h3>
+<input type="text" id="nameInput" placeholder="Enter name">
+<p id="preview"></p>
+
+
+
+
+<h3>Task 2: Click Counter</h3>
+<button id="countBtn">Click Me</button>
+<p id="count">0</p>
+
+
+
+
+<h3>Task 3: Show/Hide Password</h3>
+<input type="password" id="pass">
+<button id="toggleBtn">Show</button>
+
+
+
+
+<h3>Task 4: Form Submit</h3>
+<form id="form">
+    <input type="text" id="formName" placeholder="Enter name">
+    <button type="submit">Submit</button>
+</form>
+<p id="result"></p>
+
+
+
+<h3>Task 5: Background Color</h3>
+<button class="colorBtn" data-color="red">Red</button>
+<button class="colorBtn" data-color="green">Green</button>
+<button class="colorBtn" data-color="blue">Blue</button>
+
+<script>
+
+    
+    const nameInput = document.getElementById("nameInput");
+    const preview = document.getElementById("preview");
+
+    nameInput.addEventListener("input", () => {
+        preview.innerText = nameInput.value;
+    });
+
+    
+    let count = 0;
+    const countBtn = document.getElementById("countBtn");
+    const countDisplay = document.getElementById("count");
+
+    countBtn.addEventListener("click", () => {
+        countDisplay.innerText = ++count;
+    });
+
+    
+    const pass = document.getElementById("pass");
+const toggleBtn = document.getElementById("toggleBtn");
+
+toggleBtn.addEventListener("click", () => {
+
+    if (pass.type === "password") {
+        pass.type = "text";     
+        toggleBtn.innerText = "Hide";
+    } else {
+        pass.type = "password";  
+        toggleBtn.innerText = "Show";
+    }
+
+});
+
+    
+    const form = document.getElementById("form");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        result.innerText = document.getElementById("formName").value;
+    });
+
+    const buttons = document.querySelectorAll(".colorBtn");
+
+    buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+            document.body.style.backgroundColor = btn.dataset.color;
+        });
+    });
+
+</script>
+
+</body>
+</html>
